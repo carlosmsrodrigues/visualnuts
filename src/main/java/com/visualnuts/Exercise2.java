@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,16 +54,25 @@ public final class Exercise2 {
 
 			System.out.println("returns the number of countries in the world: " + numberOfAllCountries.size());
 
-			System.out.println("finds the country with the most official languages, where they officially speak German (de): " +
-					countryWithMostGermanyAsOfficialLanguageSorted.firstEntry().getKey());
+			if (MapUtils.isNotEmpty(countryWithMostGermanyAsOfficialLanguageSorted)) {
+
+				System.out.println("finds the country with the most official languages, where they officially speak German (de): " +
+						countryWithMostGermanyAsOfficialLanguageSorted.firstEntry().getKey());
+			}
 
 			System.out.println("that counts all the official languages spoken in the listed countries: " + countAllOfficialLanguagesSpoken.size());
 
-			System.out.println("to find the country with the highest number of official languages: " +
-					countryWithHighestOfficialLanguagesSorted.firstEntry().getKey());
+			if (MapUtils.isNotEmpty(countryWithHighestOfficialLanguagesSorted)) {
 
-			System.out.println("to find the most common official language(s), of all countries: " +
-					countryWithMostCommonOfficialLanguageSorted.firstEntry().getKey());
+				System.out.println("to find the country with the highest number of official languages: " +
+						countryWithHighestOfficialLanguagesSorted.firstEntry().getKey());
+			}
+
+			if (MapUtils.isNotEmpty(countryWithMostCommonOfficialLanguageSorted)) {
+
+				System.out.println("to find the most common official language(s), of all countries: " +
+						countryWithMostCommonOfficialLanguageSorted.firstEntry().getKey());
+			}
 
 		} catch (final JsonProcessingException e) {
 
